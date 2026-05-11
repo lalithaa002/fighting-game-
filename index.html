@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Press+Start+2P&display=swap" rel="stylesheet">
+<head> 
+	<meta charset="UTF-8">
+	<title>JavaScript Fighting Game Tutorial with HTML Canvas</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			font-family: Montserrat, sans-serif;
+			font-family: 'Press Start 2P', cursive;
+		}
+		.wrapper {
+			position: relative;
+			display: inline-flex;
+		}
+		.healthBar {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			width: 100%;
+			padding: 20px;
+		}
+
+		.healthBar__progress {
+			height: 100%;
+			width: 100%;
+			background: #818CF8;
+			transition: width .3s ease-in-out;
+		}
+		.healthBar__player,
+		.healthBar__enemy {
+			background: red;
+			height: 30px;
+			flex-grow: 1;
+			flex-basis: 100%;
+			display: flex;
+			border: 4px solid #fff;
+		}
+
+		.healthBar__player {
+			justify-content: flex-end;
+		}
+
+		.roundTimer {
+			background: black;
+			width: 100px;
+			height: 50px;
+			flex-shrink: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
+			border: 4px solid #fff;
+			margin: 0 -4px;
+		}
+		.displayText {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: none;
+			color: #fff;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="healthBar">
+		<div class="healthBar__player">
+			<div id="playerHealth" class="healthBar__progress"></div>
+		</div>
+		<div id="timer" class="roundTimer">10</div>
+		<div class="healthBar__enemy">
+			<div id="enemyHealth" class="healthBar__progress"></div>
+		</div>
+	</div>
+	<canvas></canvas>
+	<div id="displayText" class="displayText"></div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/classes.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
